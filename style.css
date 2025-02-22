@@ -191,7 +191,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     padding: 32px;
     background-color: #ffffff;
     color: white;
-    background-image: url("/assets/bannerLandingPage2.png");
+    background-image: url("bannerLandingPage2.png");
     background-size: cover;
     position: relative; /* Needed for the overlay */
 }
