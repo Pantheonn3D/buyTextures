@@ -259,7 +259,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 
 .container h1, 
 .container p {
-    text-shadow: 2px 2px 80px rgb(255, 255, 255);
+    text-shadow: 2px 2px 40px rgba(255, 255, 255, 0.092);
 }
 
 .viewTexturesButton {
