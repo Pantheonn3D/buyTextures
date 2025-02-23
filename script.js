@@ -11,15 +11,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const cardWidth = firstCard.clientWidth;
     const gap = 16; // Match the CSS gap
 
-    // Set the correct initial offset based on the real card size
-    const initialOffset = cardWidth / 2 + gap / 2; // Shift to center correctly
+    // Set the correct initial offset (half a card width)
+    const initialOffset = cardWidth / 6 + gap / 6;
     track.style.transform = `translateX(-${initialOffset}px)`;
 
     function swipeLeft() {
         if (track.children.length > 10) {
-            // Move exactly 1 full card's width
+            // Move exactly one full card width
             track.style.transition = "transform 1.5s ease-in-out";
-            track.style.transform = `translateX(-${initialOffset + cardWidth + gap}px)`; 
+            track.style.transform = `translateX(-${initialOffset + cardWidth + gap}px)`;
 
             setTimeout(() => {
                 track.appendChild(track.children[0]); // Move first card to the end
