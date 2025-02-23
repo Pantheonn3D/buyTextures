@@ -7,17 +7,27 @@ function toggleSidebar() {
 //infinite scrolling carousel on homepage
 document.addEventListener("DOMContentLoaded", function () {
     const track = document.querySelector(".carouselTrack");
-    const firstCard = track.children[0]; // Get the first card dynamically
-    const cardWidth = firstCard.clientWidth;
-    const gap = 16; // Match the CSS gap
 
-    // Set the correct initial offset (half a card width)
-    const initialOffset = cardWidth / 6 + gap / 6;
-    track.style.transform = `translateX(-${initialOffset}px)`;
+    function calculateOffsets() {
+        const firstCard = track.children[0]; // Get the first card dynamically
+        const cardWidth = firstCard.clientWidth;
+        const gap = 16; // Match the CSS gap
+
+        // Ensure correct offset based on screen size
+        return Math.floor(cardWidth / 3 + gap / 3);
+    }
+
+    function updateCarouselPosition() {
+        const initialOffset = calculateOffsets();
+        track.style.transform = `translateX(-${initialOffset}px)`;
+    }
 
     function swipeLeft() {
         if (track.children.length > 10) {
-            // Move exactly one full card width
+            const initialOffset = calculateOffsets();
+            const cardWidth = track.children[0].clientWidth;
+            const gap = 16;
+
             track.style.transition = "transform 1.5s ease-in-out";
             track.style.transform = `translateX(-${initialOffset + cardWidth + gap}px)`;
 
@@ -29,6 +39,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Initialize position
+    updateCarouselPosition();
+
+    // Recalculate offsets when screen resizes
+    window.addEventListener("resize", updateCarouselPosition);
+
+    // Start the infinite scroll
     setInterval(swipeLeft, 3000); // Moves every 3 seconds
 });
 
