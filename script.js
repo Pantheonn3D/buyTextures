@@ -14,7 +14,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const gap = 16; // Match the CSS gap
 
         // Ensure correct offset based on screen size
-        return Math.floor(cardWidth / 3 + gap / 3);
+        if (window.innerWidth <= 768) {
+            return cardWidth / 1.3 + gap / 1.3;
+        } else {
+            return Math.floor(cardWidth / 3 + gap / 3);  
+        }
+        
     }
 
     function updateCarouselPosition() {

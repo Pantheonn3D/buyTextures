@@ -689,4 +689,9 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     .fi.fi-rr-shopping-cart.headerMove {
         right: 0px; /* Moves the icon left */
     }
+
+    .carouselCard {
+        width: 90vw; /* Adjust width dynamically */
+        max-width: 280px; /* Ensures proper scaling */
+    }
 }
