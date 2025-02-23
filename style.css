@@ -14,9 +14,11 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1.4rem;
     padding: 0;
 }
+
 html, body {
-    overflow: visible;
     overflow-x: hidden;
+    width: 100vw; /* Ensures the content doesn't expand */
+    position: relative;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
@@ -322,7 +324,11 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 
 .carouselTrack {
     display: flex;
-    overflow-x: auto;
+    overflow: hidden; /* Prevents scrolling */
+    width: max-content; /* Ensures all items fit naturally */
+    max-width: unset; /* Prevents restriction */
+    touch-action: none; /* Disables horizontal touch scrolling */
+    white-space: nowrap;
     white-space: nowrap;
     scroll-behavior: smooth;
     gap: 16px;
