@@ -7,6 +7,7 @@ function toggleSidebar() {
 //infinite scrolling carousel on homepage
 document.addEventListener("DOMContentLoaded", function () {
     const track = document.querySelector(".carouselTrack");
+    track.style.transform = "translateX(-156px)";
     const img = track.querySelector("img");
 
     function duplicateImages() {
@@ -19,14 +20,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function swipeLeft() {
         if (track.children.length > 1) {
-            track.style.transition = "transform 2s ease-in-out";
-            track.style.transform = `translateX(-${track.children[0].clientWidth*2 + 32}px)`; // Moves 2 images left
+            track.style.transition = "transform 1.5s ease-in-out";
+            track.style.transform = `translateX(-${track.children[0].clientWidth*2 + 16*2}px)`; // Moves 2 images left
 
             setTimeout(() => {
-                track.appendChild(track.children[0]); // Moves first image to the end
+                for (let i = 0; i < 4; i++) { // Move 4 images to the end
+                    track.appendChild(track.children[0]);
+                }
                 track.style.transition = "none"; // Instantly reset position
                 track.style.transform = "translateX(0)"; // Reset to starting position
-            }, 2000); // Wait for the transition to finish
+            }, 1500);
         }
     }
 
