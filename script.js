@@ -7,33 +7,29 @@ function toggleSidebar() {
 //infinite scrolling carousel on homepage
 document.addEventListener("DOMContentLoaded", function () {
     const track = document.querySelector(".carouselTrack");
-    track.style.transform = "translateX(-156px)";
-    const img = track.querySelector("img");
+    const firstCard = track.children[0]; // Get the first card dynamically
+    const cardWidth = firstCard.clientWidth;
+    const gap = 16; // Match the CSS gap
 
-    function duplicateImages() {
-        const numCopies = 8; // Number of extra copies for smooth looping
-        for (let i = 0; i < numCopies; i++) {
-            let clone = img.cloneNode(true);
-            track.appendChild(clone);
-        }
-    }
+    // Set the correct initial offset based on the real card size
+    const initialOffset = cardWidth / 2 + gap / 2; // Shift to center correctly
+    track.style.transform = `translateX(-${initialOffset}px)`;
 
     function swipeLeft() {
-        if (track.children.length > 1) {
+        if (track.children.length > 10) {
+            // Move exactly 1 full card's width
             track.style.transition = "transform 1.5s ease-in-out";
-            track.style.transform = `translateX(-${track.children[0].clientWidth*2 + 16*2}px)`; // Moves 2 images left
+            track.style.transform = `translateX(-${initialOffset + cardWidth + gap}px)`; 
 
             setTimeout(() => {
-                for (let i = 0; i < 4; i++) { // Move 4 images to the end
-                    track.appendChild(track.children[0]);
-                }
-                track.style.transition = "none"; // Instantly reset position
-                track.style.transform = "translateX(0)"; // Reset to starting position
+                track.appendChild(track.children[0]); // Move first card to the end
+                track.style.transition = "none";
+                track.style.transform = `translateX(-${initialOffset}px)`; // Reset to correct offset
             }, 1500);
         }
     }
 
-    setInterval(swipeLeft, 6000); // Swipes every 3 seconds
+    setInterval(swipeLeft, 3000); // Moves every 3 seconds
 });
 
 //SCROLLBAR WORKS, DON'T TOUCH THIS CODE I HAVE NO IDEA WHY IT WORKS RIGHT NOW BUT IT DOES
