@@ -340,7 +340,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-out;
 }
 
 .carouselCard:hover {
@@ -419,8 +419,192 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     user-select: none;
 }
 
-.container4 {
-    height: 1024px;
+.concept {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding: 16px 16px; /* Increased padding for better spacing */
+    padding-top: 64px;
+    padding-bottom: 64px;
+    background-color: #131313;
+    color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+}
+
+.conceptCard {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the title and icon together */
+    gap: 16px; /* Space between title and icon */
+    max-width: 900px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Ensuring title and content are spaced properly */
+#conceptTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Adds spacing between title and icon */
+}
+
+/* Lightbulb icon fixes */
+#conceptIcon {
+    font-size: 1.5rem;
+    color: #6ce000;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Lightbulb icon hover effect */
+#conceptIcon:hover {
+    transform: scale(1.2);
+    color: #4caf50;
+}
+
+.conceptContent {
+    max-width: 700px; /* Prevents text from spanning too wide */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+    padding: 0 16px;
+}
+
+.process {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding: 16px 16px; /* Increased padding for better spacing */
+    padding-top: 64px;
+    padding-bottom: 64px;
+    background-color: #101010;
+    color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+}
+
+.processCard {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the title and icon together */
+    gap: 16px; /* Space between title and icon */
+    max-width: 900px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Ensuring title and content are spaced properly */
+#processTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Adds spacing between title and icon */
+}
+
+/* Lightbulb icon fixes */
+#processIcon {
+    font-size: 1.5rem;
+    color: #6ce000;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Lightbulb icon hover effect */
+#processIcon:hover {
+    transform: scale(1.2);
+    color: #4caf50;
+}
+
+.processContent {
+    max-width: 700px; /* Prevents text from spanning too wide */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+    padding: 0 16px;
+}
+
+.readProcess {
+    font-size: 1em;
+    font-weight: 600;
+    color: #6ce000;
+    margin: 4px;
+    transition: transform 0.3s;
+}
+
+.readProcess:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    color: #4caf50;
+}
+
+.concept3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding: 16px 16px; /* Increased padding for better spacing */
+    padding-top: 64px;
+    padding-bottom: 64px;
+    background-color: #131313;
+    color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+}
+
+.conceptCard3 {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the title and icon together */
+    gap: 16px; /* Space between title and icon */
+    max-width: 900px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Ensuring title and content are spaced properly */
+#conceptTitle3 {
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Adds spacing between title and icon */
+}
+
+/* Lightbulb icon fixes */
+#conceptIcon3 {
+    font-size: 1.5rem;
+    color: #6ce000;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Lightbulb icon hover effect */
+#conceptIcon3:hover {
+    transform: scale(1.2);
+    color: #4caf50;
+}
+
+.conceptContent3 {
+    max-width: 700px; /* Prevents text from spanning too wide */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+    padding: 0 16px;
+}
+
+.container5 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -434,7 +618,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.container5 {
+.container6 {
     height: 160px;
     display: flex;
     justify-content: center;
@@ -443,7 +627,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     flex-direction: column;
     gap: 32px;
     padding: 32px;
-    background-color: #1c1c1c; /* Dark background 131313*/
+    background-color: #131313; /* Dark background 131313*/
     color: white;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
