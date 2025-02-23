@@ -4,6 +4,35 @@ function toggleSidebar() {
     document.getElementById("shoppingCart").classList.toggle("headerMove");
 }
 
+//infinite scrolling carousel on homepage
+document.addEventListener("DOMContentLoaded", function () {
+    const track = document.querySelector(".carouselTrack");
+    const img = track.querySelector("img");
+
+    function duplicateImages() {
+        const numCopies = 8; // Number of extra copies for smooth looping
+        for (let i = 0; i < numCopies; i++) {
+            let clone = img.cloneNode(true);
+            track.appendChild(clone);
+        }
+    }
+
+    function swipeLeft() {
+        if (track.children.length > 1) {
+            track.style.transition = "transform 2s ease-in-out";
+            track.style.transform = `translateX(-${track.children[0].clientWidth*2 + 32}px)`; // Moves 2 images left
+
+            setTimeout(() => {
+                track.appendChild(track.children[0]); // Moves first image to the end
+                track.style.transition = "none"; // Instantly reset position
+                track.style.transform = "translateX(0)"; // Reset to starting position
+            }, 2000); // Wait for the transition to finish
+        }
+    }
+
+    setInterval(swipeLeft, 6000); // Swipes every 3 seconds
+});
+
 //SCROLLBAR WORKS, DON'T TOUCH THIS CODE I HAVE NO IDEA WHY IT WORKS RIGHT NOW BUT IT DOES
 document.addEventListener("DOMContentLoaded", function () {
     const content = document.querySelector(".scroll-content");

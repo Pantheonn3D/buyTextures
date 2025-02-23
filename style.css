@@ -191,7 +191,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 .container {
     background-color: #131313;
     color: white;
-    height: 512px;
+    height: 480px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -207,7 +207,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     position: relative;
     top: 90%;
     left: 0;
-    width: 1900px;
+    width: 2000px;
     height: 100%;
     object-fit: cover;
     z-index: 0;
@@ -292,13 +292,13 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 
 .container2 {
     position: relative;
-    height: 96px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
-    padding: 32px;
+    padding: 16px;
     background-color: #1c1c1c;
     color: white;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
@@ -306,18 +306,117 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 }
 
 .container3 {
-    height: 256px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
-    gap: 32px;
-    padding: 32px;
+    gap: 8px;
+    padding: 8px;
     background-color: #101010; /* Dark background 131313*/
     color: white;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.carouselTrack {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    gap: 16px;
+    padding: 16px;
+}
+
+.carouselCard {
+    width: 256 + 32px; /* Adjust based on the image size */
+    height: auto;
+    padding: 16px;
+    background-color: #181818;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.carouselCard:hover {
+    transform: scale(1.05);
+}
+
+.textureName {
+    margin-top: 8px;
+    font-size: 1em; /* Make text more readable */
+    font-weight: 600; /* Slightly bold text */
+    font-weight: bold;
+    color: white;
+    user-select: none;
+    gap: 8px;
+    padding: 8px;
+    
+}
+
+.textureDetails {
+    font-size: 0.8em; /* Make text more readable */
+    font-weight: default;
+    color: #bbb;
+    user-select: none;
+    gap: 8px;
+    padding-bottom: 32px;
+}
+
+.featuredButtonContainer {
+    display: flex;
+    gap: 16px; /* Adjust spacing between buttons */
+    margin-top: 8px; /* Adds spacing from text */
+}
+
+.addFeaturedToCart {
+    height: 32px;
+    width: 156px;
+    font-size: 1em; /* Make text more readable */
+    font-weight: 600; /* Slightly bold text */
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    gap: 16px;
+    transition: transform 0.2s ease-in-out;
+    text-decoration: none; /* Removes underline if used in <a> */
+    display: inline-block; /* Prevents extra spacing issues */
+    user-select: none;
+}
+
+.viewFeaturedTexture {
+    height: 32px;
+    width: 88px;
+    border-radius: 8px;
+    font-size: 1em; /* Make text more readable */
+    font-weight: 600; /* Slightly bold text */
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    text-decoration: none; /* Removes underline if used in <a> */
+    display: inline-block; /* Prevents extra spacing issues */
+    user-select: none;
+}
+
+.addFeaturedToCart:hover,
+.viewFeaturedTexture:hover {
+    transform: scale(1.05)
+}
+
+.carouselItem {
+    height: 256px; /* Adjust as needed */
+    width: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s;
+    user-select: none;
 }
 
 .container4 {
