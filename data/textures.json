@@ -1,0 +1,71 @@
+[
+    {
+      "id": "concrete-rough",
+      "image": "textures/concrete/concrete-rough/main-preview.webp",
+      "name": "Concrete Rough",
+      "details": "8K Resolution, seamless",
+      "description": "High-quality rough concrete texture with detailed surface variations perfect for architectural visualization and gaming environments.",
+      "link": "pages/texture-detail.html?id=concrete-rough",
+      "category": "concrete",
+      "price": 0.99,
+      "featured": true,
+      "resolution": "8192 × 8192",
+      "format": "PNG",
+      "maps": {
+        "diffuse": "textures/concrete/concrete-rough/maps/diffuse.jpg",
+        "normal": "textures/concrete/concrete-rough/maps/normal.jpg"
+      }
+    },
+    {
+      "id": "acoustic-panel-white",
+      "image": "textures/acoustic/acoustic-panel-white/main-preview.webp",
+      "name": "White Acoustic Panel",
+      "details": "8K Resolution, seamless",
+      "description": "Clean white acoustic panel texture with precise perforations, ideal for interior design and audio visual environments.",
+      "link": "pages/texture-detail.html?id=acoustic-panel-white",
+      "category": "acoustic",
+      "price": 0.99,
+      "featured": true,
+      "resolution": "8192 × 8192",
+      "format": "PNG",
+      "maps": {
+        "diffuse": "textures/acoustic/acoustic-panel-white/maps/diffuse.jpg",
+        "normal": "textures/acoustic/acoustic-panel-white/maps/normal.jpg"
+      }
+    },
+    {
+      "id": "fabric-couch-beige",
+      "image": "textures/fabric/fabric-couch-beige/main-preview.webp",
+      "name": "Beige Couch Fabric",
+      "details": "8K Resolution, seamless",
+      "description": "Soft beige fabric texture with subtle weave pattern, perfect for furniture upholstery and interior design projects.",
+      "link": "pages/texture-detail.html?id=fabric-couch-beige",
+      "category": "fabric",
+      "price": 0.99,
+      "featured": true,
+      "resolution": "8192 × 8192",
+      "format": "PNG",
+      "maps": {
+        "diffuse": "textures/fabric/fabric-couch-beige/maps/diffuse.jpg",
+        "normal": "textures/fabric/fabric-couch-beige/maps/normal.jpg"
+      }
+    },
+    {
+      "id": "sweater-wool-beige",
+      "image": "textures/fabric/sweater-wool-beige/main-preview.webp",
+      "name": "Beige Sweater Wool",
+      "details": "8K Resolution, seamless",
+      "description": "Ultra-detailed beige sweater wool texture perfect for clothing, furniture and fabric simulations. This texture delivers exceptional detail and realism for your 3D projects.",
+      "link": "pages/texture-detail.html?id=sweater-wool-beige",
+      "category": "fabric",
+      "price": 0.99,
+      "featured": true,
+      "resolution": "8192 × 8192",
+      "format": "PNG",
+      "maps": {
+        "diffuse": "textures/fabric/sweater-wool-beige/maps/diffuse.jpg",
+        "normal": "textures/fabric/sweater-wool-beige/maps/normal.jpg",
+        "height": "textures/fabric/sweater-wool-beige/maps/height.jpg"
+      }
+    }
+]

@@ -1,0 +1,1164 @@
+/* Texture Detail Page Styles - Clean Consolidated Version */
+
+/* 
+ * Table of Contents:
+ * 1. Global Structure
+ * 2. Left Column (Thumbnails)
+ * 3. Center Content Area
+ *    3.1 Main Image Container
+ *    3.2 Expandable Containers
+ * 4. Right Column (Product Info)
+ * 5. Additional Components
+ * 6. Responsive Styles
+ * 7. Animations & Utilities
+ */
+
+/* =================== */
+/* 1. Global Structure */
+/* =================== */
+
+.detailedViewContainer {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 64px);
+    margin-top: 64px;
+    background-color: var(--dark-bg);
+    position: relative;
+}
+
+/* ============================= */
+/* 2. Left Column (Thumbnails)   */
+/* ============================= */
+
+.smallPreviewContainer {
+    position: sticky;
+    top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 32px 16px;
+    background-color: var(--darker-bg);
+    height: calc(100vh - 64px);
+    width: 80px;
+    align-items: center;
+    z-index: 10;
+    transition: all 0.3s ease;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.smallPreviewContainer:hover {
+    width: 90px;
+}
+
+.smallPreviewImage {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.smallPreviewImage::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: all 0.2s ease;
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.smallPreviewImage:hover::after {
+    opacity: 1;
+}
+
+.smallPreviewImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.smallPreviewImage.active {
+    transform: scale(1.05);
+}
+
+.smallPreviewImage.active img {
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 12px rgba(123, 239, 0, 0.3);
+}
+
+.smallPreviewImage.active::before {
+    content: "";
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 24px;
+    background-color: var(--primary-color);
+    border-radius: 1px;
+    box-shadow: 0 0 8px rgba(123, 239, 0, 0.4);
+}
+
+.smallPreviewImage:hover img {
+    transform: scale(1.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.smallPreviewImage .map-type-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 8px;
+    text-transform: uppercase;
+    padding: 2px 4px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+    opacity: 0;
+    transform: translateY(100%);
+    z-index: 2;
+}
+
+.smallPreviewImage:hover .map-type-indicator {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.smallPreviewImage.diffuse .map-type-indicator {
+    background-color: rgba(0, 150, 255, 0.7);
+}
+
+.smallPreviewImage.normal .map-type-indicator {
+    background-color: rgba(170, 0, 255, 0.7);
+}
+
+.smallPreviewImage.height .map-type-indicator {
+    background-color: rgba(255, 150, 0, 0.7);
+}
+
+.smallPreviewImage.roughness .map-type-indicator {
+    background-color: rgba(0, 200, 80, 0.7);
+}
+
+.smallPreviewImage.ao .map-type-indicator {
+    background-color: rgba(255, 80, 0, 0.7);
+}
+
+/* ====================== */
+/* 3. Center Content Area */
+/* ====================== */
+
+.centerContentArea {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+    padding: 30px;
+    position: relative;
+}
+
+/* 3.1 Main Image Container */
+
+.detailedViewImageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    min-height: 450px;
+    position: relative;
+    background-color: var(--darker-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.detailedViewImageContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(28, 28, 28, 0.8) 0%, rgba(16, 16, 16, 1) 80%);
+    opacity: 0.7;
+    pointer-events: none;
+    border-radius: 8px;
+}
+
+.mainImageWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainImageWrapper img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.mainImageWrapper img:hover {
+    transform: scale(1.02);
+}
+
+.image-nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 5;
+    opacity: 0;
+}
+
+.detailedViewImageContainer:hover .image-nav-arrow {
+    opacity: 0.7;
+}
+
+.image-nav-arrow:hover {
+    background: rgba(123, 239, 0, 0.8);
+    opacity: 1 !important;
+}
+
+.image-nav-prev {
+    left: 20px;
+}
+
+.image-nav-next {
+    right: 20px;
+}
+
+/* 3.2 Expandable Containers */
+
+.expandableContainer {
+    width: 100%;
+    background-color: var(--darker-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.toggleButton {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 16px;
+}
+
+.toggleButton button {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    width: 100%;
+    justify-content: center;
+}
+
+.toggleButton button:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.toggleButton button i {
+    transition: transform 0.3s ease;
+}
+
+.toggleButton button .hide-text {
+    display: none;
+}
+
+.expandableContainer.expanded .toggleButton button .show-text {
+    display: none;
+}
+
+.expandableContainer.expanded .toggleButton button .hide-text {
+    display: inline;
+}
+
+.expandableContainer.expanded .toggleButton button i {
+    transform: rotate(180deg);
+}
+
+.expandableContent {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+    padding: 0 16px;
+}
+
+.expandableContainer.expanded .expandableContent {
+    padding: 0 16px 16px;
+}
+
+/* Technical Details specific styling */
+.technicalDetailsInner {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.technicalDetailsInner h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin: 0 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.technicalDetailsInner h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin: 24px 0 16px;
+}
+
+.technicalDetailsInner p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+}
+
+.technicalDetailsInner ul {
+    color: rgba(255, 255, 255, 0.8);
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.technicalDetailsInner ul li {
+    margin-bottom: 8px;
+}
+
+/* SEO Description specific styling */
+#seoDescriptionContent {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#seoDescriptionContent h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin: 0 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#seoDescriptionContent h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin: 24px 0 16px;
+}
+
+#seoDescriptionContent p {
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+}
+
+#seoDescriptionContent ul, 
+#seoDescriptionContent ol {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+#seoDescriptionContent li {
+    margin-bottom: 8px;
+}
+
+.technicalSpec {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 6px;
+    margin: 20px 0;
+    border-left: 3px solid var(--primary-color);
+}
+
+.technicalSpec h4 {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+.technicalSpec dl {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 8px 16px;
+    margin: 0;
+}
+
+.technicalSpec dt {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+}
+
+.technicalSpec dd {
+    color: white;
+    margin-left: 0;
+}
+
+#seoDescriptionContent table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+#seoDescriptionContent th {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#seoDescriptionContent td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#seoDescriptionContent tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.keyword {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* ================================ */
+/* 4. Right Column (Product Info)   */
+/* ================================ */
+
+.detailedViewDescriptionContainer {
+    width: 35%;
+    min-width: 380px;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--darker-bg);
+    position: relative;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Product Title */
+.detailedViewTitle {
+    margin-bottom: 20px;
+    padding: 0;
+    text-align: left;
+}
+
+.detailedViewTitle h1 {
+    font-size: 2.5rem;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
+}
+
+.detailedViewTitle h1::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 1px;
+}
+
+/* Product Specs */
+.productSpecs {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 20px 0 32px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.productSpecs span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.productSpecs span::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+
+/* Product Price */
+.price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.price::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.price .currency {
+    font-size: 1.4rem;
+    margin-right: 2px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Action Buttons */
+.texture-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+/* Add to Cart Button */
+.addToCartButton {
+    flex: 1;
+    background-color: var(--primary-color);
+    color: #111;
+    border: none;
+    padding: 18px 20px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(123, 239, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.addToCartButton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+}
+
+.addToCartButton:hover {
+    background-color: #88FF00;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(123, 239, 0, 0.3);
+}
+
+.addToCartButton:hover::before {
+    left: 100%;
+}
+
+.addToCartButton:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(123, 239, 0, 0.2);
+}
+
+.addToCartButton i {
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+.addToCartButton:hover i {
+    transform: translateX(3px);
+}
+
+/* Download Sample Button */
+.downloadSampleBtn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0 20px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.downloadSampleBtn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.downloadSampleBtn i {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+/* Product Description */
+.detailedViewDescription {
+    margin: 32px 0;
+    padding: 24px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.detailedViewDescription p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0;
+}
+
+/* Section Headers */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.section-header h3 {
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 600;
+}
+
+.section-header i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+/* Texture Details Section */
+.textureDetails {
+    margin-bottom: 36px;
+}
+
+.detailsList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.detailItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.detailItem:last-child {
+    border-bottom: none;
+}
+
+.detailLabel {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.95rem;
+}
+
+.detailValue {
+    color: white;
+    font-weight: 500;
+    text-align: right;
+}
+
+/* Texture Maps Section */
+.textureMaps {
+    margin-top: 36px;
+}
+
+.mapsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.mapType {
+    padding: 8px 14px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mapType i {
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.mapType:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.mapType.included {
+    background-color: rgba(123, 239, 0, 0.08);
+    color: var(--primary-color);
+    border: 1px solid rgba(123, 239, 0, 0.25);
+}
+
+.mapType.included i {
+    opacity: 1;
+}
+
+.mapType.included:hover {
+    background-color: rgba(123, 239, 0, 0.15);
+}
+
+.mapType.active {
+    background-color: var(--primary-color);
+    color: #0A0A0A;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(123, 239, 0, 0.3);
+}
+
+/* Additional Information */
+.additionalInfo {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.infoItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.infoItem i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-top: 2px;
+}
+
+.infoContent h4 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: white;
+}
+
+.infoContent p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+}
+
+/* Suggested Textures */
+.suggestedTexturesContainer {
+    margin-top: 40px;
+}
+
+.suggestedTextures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.suggestedTextureCard {
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.suggestedTextureCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.suggestedTextureCard img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.suggestedTextureCard:hover img {
+    transform: scale(1.05);
+}
+
+.suggestedTextureInfo {
+    padding: 10px;
+}
+
+.suggestedTextureInfo h4 {
+    font-size: 0.9rem;
+    margin: 0 0 4px 0;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.suggestedTextureInfo .suggestedPrice {
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* ======================== */
+/* 5. Additional Components */
+/* ======================== */
+
+/* Image Zoom Overlay */
+.image-zoom-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.image-zoom-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.image-zoom-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.image-zoom-overlay.active img {
+    transform: scale(1);
+}
+
+.zoom-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.zoom-close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+/* Not found message */
+.notFoundMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    font-size: 1.5rem;
+    color: #aaa;
+    gap: 24px;
+    text-align: center;
+    padding: 40px;
+}
+
+.notFoundMessage i {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    opacity: 0.7;
+    margin-bottom: 16px;
+}
+
+.notFoundMessage h2 {
+    font-size: 2rem;
+    color: white;
+    margin: 0;
+}
+
+.notFoundMessage p {
+    max-width: 500px;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.notFoundMessage a {
+    margin-top: 24px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.notFoundMessage a i {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.notFoundMessage a:hover {
+    background-color: var(--primary-color);
+    color: #080808;
+}
+
+/* =================== */
+/* 6. Responsive Styles */
+/* =================== */
+
+@media (max-width: 1400px) {
+    .detailedViewDescriptionContainer {
+        width: 40%;
+        min-width: 360px;
+    }
+    
+    .detailedViewImageContainer {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .detailedViewContainer {
+        flex-direction: column;
+    }
+    
+    .centerContentArea {
+        padding: 20px;
+    }
+    
+    .detailedViewDescriptionContainer {
+        width: 100%;
+        min-width: 100%;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 900px) {
+    .smallPreviewContainer {
+        position: static;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 16px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .smallPreviewContainer:hover {
+        width: 100%;
+    }
+    
+    .smallPreviewImage {
+        margin-right: 12px;
+        flex-shrink: 0;
+    }
+    
+    .smallPreviewImage.active::before {
+        display: none;
+    }
+    
+    .smallPreviewImage.active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        right: 0;
+        height: 3px;
+        width: 100%;
+        background-color: var(--primary-color);
+        border-radius: 1px;
+        top: auto;
+        transform: none;
+    }
+    
+    .detailedViewTitle h1 {
+        font-size: 2rem;
+    }
+    
+    .detailsList {
+        grid-template-columns: 1fr;
+    }
+    
+    .texture-actions {
+        flex-direction: column;
+    }
+    
+    .downloadSampleBtn {
+        width: 100%;
+        padding: 16px;
+        justify-content: center;
+    }
+    
+    .image-nav-arrow {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .image-nav-prev {
+        left: 10px;
+    }
+    
+    .image-nav-next {
+        right: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .detailedViewContainer {
+        margin-top: 60px;
+    }
+    
+    .detailedViewTitle h1 {
+        font-size: 1.8rem;
+    }
+    
+    .detailedViewTitle h1::after {
+        width: 30px;
+    }
+    
+    .price {
+        font-size: 1.8rem;
+    }
+    
+    .addToCartButton {
+        padding: 16px;
+    }
+    
+    .detailedViewDescription {
+        padding: 16px;
+    }
+    
+    .productSpecs {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .suggestedTextures {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================== */
+/* 7. Animations & Utilities  */
+/* ========================== */
+
+/* Animation for fading in content */
+@keyframes fadeIn {
+    from { 
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.detailedViewTitle,
+.price,
+.addToCartButton,
+.detailedViewDescription,
+.textureDetails,
+.textureMaps,
+.additionalInfo {
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+.detailedViewTitle { animation-delay: 0.1s; }
+.price { animation-delay: 0.2s; }
+.addToCartButton { animation-delay: 0.3s; }
+.detailedViewDescription { animation-delay: 0.4s; }
+.textureDetails { animation-delay: 0.5s; }
+.textureMaps { animation-delay: 0.6s; }
+.additionalInfo { animation-delay: 0.7s; }
+
+/* Utility Classes */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

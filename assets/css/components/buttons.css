@@ -1,0 +1,94 @@
+/* Button Component Styles */
+
+.viewTexturesButton {
+    margin-top: var(--spacing-xl);
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 24px;
+    border-radius: var(--border-radius-xl);
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+    user-select: none;
+}
+
+.viewTexturesButton:hover {
+    background-color: #000000;
+    transform: scale(1.05);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+    user-select: none;
+}
+
+.addFeaturedToCart {
+    height: 32px;
+    width: 120px;
+    font-size: 1em;
+    font-weight: 600;
+    font-weight: bold;
+    border-radius: var(--border-radius-md);
+    border: none;
+    cursor: pointer;
+    gap: var(--spacing-md);
+    transition: transform var(--transition-fast);
+    text-decoration: none;
+    display: inline-block;
+    user-select: none;
+    background-color: var(--primary-color);
+    color: black;
+}
+
+.viewFeaturedTexture {
+    height: 32px;
+    width: 88px;
+    border-radius: var(--border-radius-md);
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+    text-decoration: none;
+    display: inline-block;
+    user-select: none;
+    background-color: #222;
+    color: white;
+}
+
+.addFeaturedToCart:hover,
+.viewFeaturedTexture:hover {
+    transform: scale(1.05);
+}
+
+.readProcess {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 4px;
+    transition: transform 0.3s;
+}
+
+.readProcess:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    color: var(--secondary-color);
+}
+
+.specialCode {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: var(--spacing-md);
+    transition: transform 0.3s;
+}
+
+.specialCode:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    color: var(--secondary-color);
+}

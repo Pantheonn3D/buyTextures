@@ -1,0 +1,52 @@
+/* CSS Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+html, body {
+    touch-action: pan-y; /* Allows vertical scrolling, prevents horizontal swipe */
+    overflow-x: hidden;
+    width: 100vw; /* Ensures the content doesn't expand */
+    position: relative;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    font-family: "Montserrat", sans-serif;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 2rem;
+    margin-bottom: 1.4rem;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    background: none;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}

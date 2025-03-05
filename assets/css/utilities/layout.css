@@ -1,0 +1,168 @@
+/* Layout utilities */
+
+.container {
+    background-color: #00000000;
+    color: white;
+    height: 480px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    position: relative; /* Needed to keep background in place */
+    overflow: hidden; /* Prevents zoomed image from overflowing */
+}
+
+/* Flex utilities */
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+/* Spacing utilities */
+.gap-sm {
+    gap: var(--spacing-sm);
+}
+
+.gap-md {
+    gap: var(--spacing-md);
+}
+
+.gap-lg {
+    gap: var(--spacing-lg);
+}
+
+.gap-xl {
+    gap: var(--spacing-xl);
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.mt-sm {
+    margin-top: var(--spacing-sm);
+}
+
+.mt-md {
+    margin-top: var(--spacing-md);
+}
+
+.mt-lg {
+    margin-top: var(--spacing-lg);
+}
+
+.mt-xl {
+    margin-top: var(--spacing-xl);
+}
+
+.mb-sm {
+    margin-bottom: var(--spacing-sm);
+}
+
+.mb-md {
+    margin-bottom: var(--spacing-md);
+}
+
+.mb-lg {
+    margin-bottom: var(--spacing-lg);
+}
+
+.mb-xl {
+    margin-bottom: var(--spacing-xl);
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.p-sm {
+    padding: var(--spacing-sm);
+}
+
+.p-md {
+    padding: var(--spacing-md);
+}
+
+.p-lg {
+    padding: var(--spacing-lg);
+}
+
+.p-xl {
+    padding: var(--spacing-xl);
+}
+
+/* Width utilities */
+.w-full {
+    width: 100%;
+}
+
+.w-half {
+    width: 50%;
+}
+
+.max-w-full {
+    max-width: 100%;
+}
+
+/* Z-index utilities */
+.z-0 {
+    z-index: 0;
+}
+
+.z-1 {
+    z-index: 1;
+}
+
+.z-2 {
+    z-index: 2;
+}
+
+.z-10 {
+    z-index: 10;
+}
+
+.z-100 {
+    z-index: 100;
+}
+
+.z-1000 {
+    z-index: 1000;
+}

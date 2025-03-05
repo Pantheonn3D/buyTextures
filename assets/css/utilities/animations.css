@@ -1,0 +1,79 @@
+/* Animation Utilities */
+
+/* Banner image animations */
+@keyframes zoom-background {
+    0% {
+        transform: scale(1.05);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+.bannerImage {
+    position: relative;
+    top: 90%;
+    left: 0;
+    width: 2000px;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    animation: zoom-background 10s infinite alternate;
+    user-select: none;
+}
+
+.bannerOverlay {
+    position: absolute;
+    top: 80%;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    animation: zoom-background 10s infinite alternate;
+    user-select: none;
+}
+
+/* Other animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Scale animations */
+@keyframes scaleUp {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.scale-up {
+    animation: scaleUp 0.3s ease-in-out;
+}
+
+/* Transition utilities */
+.transition-fast {
+    transition: all var(--transition-fast);
+}
+
+.transition-normal {
+    transition: all var(--transition-normal);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}

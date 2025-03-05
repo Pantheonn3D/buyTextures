@@ -1,0 +1,83 @@
+/* Header Component Styles */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--dark-bg);
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    padding: 0 var(--spacing-lg);
+    color: white;
+    font-size: 16px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    user-select: none;
+}
+
+.headerLeft,
+.headerRight {
+    display: flex;
+    align-items: center;
+}
+
+.headerLeft {
+    align-items: left;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+}
+
+.headerRight {
+    margin-left: auto;
+    gap: var(--spacing-md);
+}
+
+.headerLogo {
+    height: 32px;
+    width: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform var(--transition-normal);
+}
+
+.headerLogo:hover {
+    transform: scale(1.1);
+}
+
+.fi.fi-rr-menu-burger {
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-right: 8px;
+    transition: transform var(--transition-normal);
+}
+
+.fi.fi-rr-shopping-cart {
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    right: 128px;
+    transition: right 0.45s cubic-bezier(0.05, 0.3, 0.04, 1.1) 0.05s, transform var(--transition-normal);
+}
+
+.fi.fi-rr-shopping-cart.headerMove {
+    right: 320px;
+}
+
+.fi.fi-rr-menu-burger:hover {
+    transform: scale(1.1);
+}
+    
+.fi.fi-rr-shopping-cart:hover {
+    transform: scale(1.1);
+}
+
+.nav-separator {
+    height: 24px;
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    margin: 0 12px;
+}

@@ -1,269 +1,145 @@
-<div class="scroll-container">
-    <div class="scroll-content">
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!-- Google Tag Manager -->
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-PXZRG9SX');</script>
-	<!-- End Google Tag Manager -->
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Texture Library</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-	<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-	<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-	<link rel="icon" type="image/png" href="favicon.ico" sizes="32x32"/>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-	<style>
-		body {
-		  font-family: "Montserrat", sans-serif;
-		}
-	</style>
-	
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PXZRG9SX');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texture Library</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="favicon.ico" sizes="32x32"/>
 </head>
 <body class="body">
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXZRG9SX"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-	<div class="header">
-		<div class="headerLeft">
-			<a href="index.html">
-				<img src="texture marketplace white.png" alt="logo" class="headerLogo">
-			</a>	
-		</div>
-		<div class="headerRight">			
-			<i class="fi fi-rr-shopping-cart" id="shoppingCart"></i>		
-				<span class="nav-separator"></span>
-			<i class="fi fi-rr-menu-burger" onclick="toggleSidebar()"></i>	
-		</div>
-	</div>
-	<div class="sidebar" id="sidebar">
-		<i class="fi fi-br-cross" onclick="toggleSidebar()"></i> <!-- Close button -->
-	</div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXZRG9SX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Scrollbar container wraps all content -->
+    <div class="scroll-container">
+        <div class="scroll-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="headerLeft">
+                    <a href="index.html">
+                        <img src="assets/images/logo/texture marketplace white.png" alt="logo" class="headerLogo">
+                    </a>    
+                </div>
+                <div class="headerRight">            
+                    <i class="fi fi-rr-shopping-cart" id="shoppingCart"></i>        
+                    <span class="nav-separator"></span>
+                    <i class="fi fi-rr-menu-burger" onclick="toggleSidebar()"></i>    
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <i class="fi fi-br-cross" onclick="toggleSidebar()"></i> <!-- Close button -->
+            </div>
 
-	<div class="container">	
-		<div class="background-image">
-		<div class="bannerOverlay"></div>
-		<img src="bannerImage.webp" alt="Banner Image" class="bannerImage">
-	</div>
-		<div>			
-			<h1 class="title">Texture Marketplace</h1>
-			<p class="subtitle">Find the perfect texture for your project</p>
-				<div>
-					<button class="viewTexturesButton">Get textures</button>
-				</div>
-		</div>
-		<div class="content">
-		</div>
-	</div>
-	<div class="featuredTitleContainer">
-		<div class="featuredTitle">			
-			<h1>Featured Textures</h1>
-		</div>
-		<div class="content2">
-		</div>
-	</div>
-	<div class="featuredCardContainer">
-		<div class="carouselWrapper"> <!-- New wrapper to hide overflow --> 
-						<div class="carouselTrack">
-				<div class="carouselCard">
-					<a href="concrete-rough-texture/index.html">
-						<img src="concrete rough_8k preview_2k.webp" alt="concrete rough texture 8k 4k 2k 1k texture high resolution" class="carouselItem">
-					</a>
-						<p class="textureName">Concrete Rough</p>
-						<p class="textureDetails">8K Resolution, seamless</p>
-					<div class="featuredButtonContainer">
-						<button class="addFeaturedToCart">Add to cart</button>
-						<a href="concrete-rough-texture/index.html">
-							<button class="viewFeaturedTexture">View</button>
-						</a>
-					</div>
-				</div>
-				<div class="carouselCard">
-					<img src="white acoustic panel_8k preview_2k.webp" alt="white acoustic panel texture 8k 4k 2k 1k texture high resolution" class="carouselItem">
-					<p class="textureName">White Acoustic Panel</p>
-					<p class="textureDetails">8K Resolution, seamless</p>
-					<div class="featuredButtonContainer">
-						<button class="addFeaturedToCart">Add to cart</button>
-						<button class="viewFeaturedTexture">View</button>
-					</div>
-				</div>
-				<div class="carouselCard">
-					<img src="beige couch fabric texture_8k preview_2k.webp" alt="Beige Couch Fabric texture 8k 4k 2k 1k texture high resolution" class="carouselItem">
-					<p class="textureName">Beige Couch Fabric</p>
-					<p class="textureDetails">8K Resolution, seamless</p>
-					<div class="featuredButtonContainer">
-						<button class="addFeaturedToCart">Add to cart</button>
-						<button class="viewFeaturedTexture">View</button>
-					</div>
-				</div>
-				<div class="carouselCard">
-					<a href="concrete-rough-texture/index.html">
-						<img src="concrete rough_8k preview_2k.webp" alt="concrete rough texture 8k 4k 2k 1k texture high resolution" class="carouselItem">
-					</a>
-					<p class="textureName">Concrete Rough</p>
-					<p class="textureDetails">8K Resolution, seamless</p>
-					<div class="featuredButtonContainer">
-						<button class="addFeaturedToCart">Add to cart</button>
-						<a href="concrete-rough-texture/index.html">	
-							<button class="viewFeaturedTexture">View</button>
-						</a>
-					</div>
-				</div>
-				<div class="carouselCard">
-					<img src="white acoustic panel_8k preview_2k.webp" alt="white acoustic panel texture 8k 4k 2k 1k texture high resolution" class="carouselItem">
-					<p class="textureName">White Acoustic Panel</p>
-					<p class="textureDetails">8K Resolution, seamless</p>
-					<div class="featuredButtonContainer">
-						<button class="addFeaturedToCart">Add to cart</button>
-						<button class="viewFeaturedTexture">View</button>
-					</div>
-				</div>
-				<div class="carouselCard">
-					<img src="beige couch fabric texture_8k preview_2k.webp" alt="Beige Couch Fabric texture 8k 4k 2k 1k texture high resolution" class="carouselItem">
-					<p class="textureName">Beige Couch Fabric</p>
-					<p class="textureDetails">8K Resolution, seamless</p>
-					<div class="featuredButtonContainer">
-						<button class="addFeaturedToCart">Add to cart</button>
-						<button class="viewFeaturedTexture">View</button>
-					</div>
-				</div>
-				<div class="carouselCard">
-					<a href="concrete-rough-texture/index.html">
-						<img src="concrete rough_8k preview_2k.webp" alt="concrete rough texture 8k 4k 2k 1k texture high resolution" class="carouselItem">
-					</a>
-					<p class="textureName">Concrete Rough</p>
-					<p class="textureDetails">8K Resolution, seamless</p>
-					<div class="featuredButtonContainer">
-						<button class="addFeaturedToCart">Add to cart</button>
-						<a href="concrete-rough-texture/index.html">
-							<button class="viewFeaturedTexture">View</button>
-						</a>
-					</div>
-				</div>
-				<div class="carouselCard">
-					<img src="white acoustic panel_8k preview_2k.webp" alt="white acoustic panel texture 8k 4k 2k 1k texture high resolution" class="carouselItem">
-					<p class="textureName">White Acoustic Panel</p>
-					<p class="textureDetails">8K Resolution, seamless</p>
-					<div class="featuredButtonContainer">
-						<button class="addFeaturedToCart">Add to cart</button>
-						<button class="viewFeaturedTexture">View</button>
-					</div>
-				</div>
-				<div class="carouselCard">
-					<img src="beige couch fabric texture_8k preview_2k.webp" alt="Beige Couch Fabric texture 8k 4k 2k 1k texture high resolution" class="carouselItem">
-					<p class="textureName">Beige Couch Fabric</p>
-					<p class="textureDetails">8K Resolution, seamless</p>
-					<div class="featuredButtonContainer">
-						<button class="addFeaturedToCart">Add to cart</button>
-						<button class="viewFeaturedTexture">View</button>
-					</div>
-				</div>
-				<div class="carouselCard">
-					<a href="concrete-rough-texture/index.html">
-						<img src="concrete rough_8k preview_2k.webp" alt="concrete rough texture 8k 4k 2k 1k texture high resolution" class="carouselItem">
-					</a>
-					<p class="textureName">Concrete Rough</p>
-					<p class="textureDetails">8K Resolution, seamless</p>
-					<div class="featuredButtonContainer">
-						<button class="addFeaturedToCart">Add to cart</button>
-						<a href="concrete-rough-texture/index.html">
-							<button class="viewFeaturedTexture">View</button>
-						</a>
-					</div>
-				</div>
-				<div class="carouselCard">
-					<img src="white acoustic panel_8k preview_2k.webp" alt="white acoustic panel texture 8k 4k 2k 1k texture high resolution" class="carouselItem">
-					<p class="textureName">White Acoustic Panel</p>
-					<p class="textureDetails">8K Resolution, seamless</p>
-					<div class="featuredButtonContainer">
-						<button class="addFeaturedToCart">Add to cart</button>
-						<button class="viewFeaturedTexture">View</button>
-					</div>
-				</div>
-				<div class="carouselCard">
-					<img src="beige couch fabric texture_8k preview_2k.webp" alt="Beige Couch Fabric texture 8k 4k 2k 1k texture high resolution" class="carouselItem">
-					<p class="textureName">Beige Couch Fabric</p>
-					<p class="textureDetails">8K Resolution, seamless</p>
-					<div class="featuredButtonContainer">
-						<button class="addFeaturedToCart">Add to cart</button>
-						<button class="viewFeaturedTexture">View</button>
-					</div>
-				</div>
-				<div class="carouselCard">
-					<a href="concrete-rough-texture/index.html">
-						<img src="concrete rough_8k preview_2k.webp" alt="concrete rough texture 8k 4k 2k 1k texture high resolution" class="carouselItem">
-					</a>
-					<p class="textureName">Concrete Rough</p>
-					<p class="textureDetails">8K Resolution, seamless</p>
-					<div class="featuredButtonContainer">
-						<button class="addFeaturedToCart">Add to cart</button>
-						<a href="concrete-rough-texture/index.html">
-							<button class="viewFeaturedTexture">View</button>
-						</a>
-					</div>
-				</div>
-				<div class="carouselCard">
-					<img src="white acoustic panel_8k preview_2k.webp" alt="white acoustic panel texture 8k 4k 2k 1k texture high resolution" class="carouselItem">
-					<p class="textureName">White Acoustic Panel</p>
-					<p class="textureDetails">8K Resolution, seamless</p>
-					<div class="featuredButtonContainer">
-						<button class="addFeaturedToCart">Add to cart</button>
-						<button class="viewFeaturedTexture">View</button>
-					</div>
-				</div>
-		</div>
-		</div>
-	</div>
-	<div class="concept">
-		<div class="conceptCard">
-			<h1 id="conceptTitle">The Concept</h1>
-			<i class="fi fi-rr-bulb" id="conceptIcon"></i>
-		</div>
-		<div class="conceptContent">
-			<p>
-				I started BuyTextures.com because I was truly frustrated with the way most texture websites work.
-				Every time I needed a new texture, I had to jump through endless sign-up hoops, subscribe to newsletters
-				I never read, and then deal with "hidden fees" (returning subscriptions from subscription services that did not offer a one-time purchase) that only appeared on my bank statement. I knew there had to
-				be a better way.
-			</p>
-		</div>
-	</div>
-	<div class="process">
-		<div class="processCard">
-			<h1 id="processTitle">The Process</h1>
-			<i class="fi fi-rr-camera" id="processIcon"></i>
-		</div>
-		<div class="processContent">
-			<p>
-				Long story short: the textures that are currently available are captured to ensure the lightning conditions play
-				no role and that there are no significant shadows or artifacts on the images.
-				Read more about the process <span class="readProcess">here</span>
-			</p>
-		</div>
-	</div>
-	<div class="container6">
-		<div class="title6">			
-			<h1>If you've made it this far...</h1>
-			<p>...i have to admit that i'm not quite done yet. but grab <span class="specialCode">this code</span> to get a lifetime 20% discount</p>
-		</div>
-		<div class="content6">
-		</div>
-	</div>
-	<script src="script.js"></script>
+            <!-- Main content container -->
+            <div class="container">    
+                <div class="background-image">
+                    <div class="bannerOverlay"></div>
+                    <img src="assets/images/bannerImage.webp" alt="Banner Image" class="bannerImage">
+                </div>
+                <div>            
+                    <h1 class="title">Texture Marketplace</h1>
+                    <p class="subtitle">Find the perfect texture for your project</p>
+                    <div>
+                        <button class="viewTexturesButton">Get textures</button>
+                    </div>
+                </div>
+                <div class="content">
+                </div>
+            </div>
+            
+            <!-- Featured textures section -->
+            <div class="featuredTitleContainer">
+                <div class="featuredTitle">            
+                    <h1>Featured Textures</h1>
+                </div>
+                <div class="content2">
+                </div>
+            </div>
+            
+            <!-- Carousel container -->
+            <div class="featuredCardContainer">
+                <div class="carouselWrapper"> <!-- Wrapper to hide overflow --> 
+                    <div class="carouselTrack" id="carouselTrack"></div> <!-- Empty div for JS to populate -->
+                </div>
+            </div>
+            
+            <!-- The Concept section -->
+            <div class="concept">
+                <div class="conceptCard">
+                    <h1 id="conceptTitle">The Concept</h1>
+                    <i class="fi fi-rr-bulb" id="conceptIcon"></i>
+                </div>
+                <div class="conceptContent">
+                    <p>
+                        I started BuyTextures.com because I was truly frustrated with the way most texture websites work.
+                        Every time I needed a new texture, I had to jump through endless sign-up hoops, subscribe to newsletters
+                        I never read, and then deal with "hidden fees" (returning subscriptions from subscription services that did not offer a one-time purchase) that only appeared on my bank statement. I knew there had to
+                        be a better way.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- The Process section -->
+            <div class="process">
+                <div class="processCard">
+                    <h1 id="processTitle">The Process</h1>
+                    <i class="fi fi-rr-camera" id="processIcon"></i>
+                </div>
+                <div class="processContent">
+                    <p>
+                        Long story short: the textures that are currently available are captured to ensure the lightning conditions play
+                        no role and that there are no significant shadows or artifacts on the images.
+                        Read more about the process <span class="readProcess">here</span>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Final CTA section -->
+            <div class="container6">
+                <div class="title6">            
+                    <h1>If you've made it this far...</h1>
+                    <p>...i have to admit that i'm not quite done yet. but grab <span class="specialCode">this code</span> to get a lifetime 20% discount</p>
+                </div>
+                <div class="content6">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Custom scrollbar component -->
+        <div class="custom-scrollbar">
+            <div class="custom-scrollbar-thumb"></div>
+        </div>
+    </div>
+    
+    <!-- JavaScript Files -->
+    <script src="assets/js/components/sidebar.js"></script>
+    <script src="assets/js/components/carousel.js"></script>
+    <script src="assets/js/components/custom-scrollbar.js"></script>
+    <script src="assets/js/pages/home.js"></script>
+    <script src="assets/js/init.js"></script>
 </body>
 </html>
-</div>
-<div class="custom-scrollbar">
-    <div class="custom-scrollbar-thumb"></div>
-</div>
-</div>

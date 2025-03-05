@@ -1,0 +1,35 @@
+/* Sidebar Component Styles */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: var(--sidebar-width);
+    height: 100%;
+    background: #1e1e1e;
+    color: white;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s cubic-bezier(0.2, 0.4, 0.1, 1);
+    padding-top: var(--header-height);
+    z-index: 1000;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.fi.fi-br-cross {
+    font-size: 1.3em;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    transition: transform var(--transition-normal);
+    transform-origin: center;
+}
+
+.fi.fi-br-cross:hover {
+    transform: scale(1.1);
+}

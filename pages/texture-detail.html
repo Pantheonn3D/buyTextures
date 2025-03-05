@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PXZRG9SX');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texture Detail</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="../favicon.ico" sizes="32x32"/>
+</head>
+<body class="body">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXZRG9SX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Scrollbar container wraps all content -->
+    <div class="scroll-container">
+        <div class="scroll-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="headerLeft">
+                    <a href="../index.html">
+                        <img src="../assets/images/logo/texture marketplace white.png" alt="logo" class="headerLogo">
+                    </a>    
+                </div>
+                <div class="headerRight">            
+                    <i class="fi fi-rr-shopping-cart" id="shoppingCart"></i>        
+                    <span class="nav-separator"></span>
+                    <i class="fi fi-rr-menu-burger" onclick="toggleSidebar()"></i>    
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <i class="fi fi-br-cross" onclick="toggleSidebar()"></i> <!-- Close button -->
+            </div>
+
+            <div class="detailedViewContainer">
+                <!-- Left thumbnails -->
+                <div class="smallPreviewContainer" id="previewContainer">
+                    <!-- Will be populated dynamically by JavaScript -->
+                </div>
+                
+                <!-- Center content area -->
+                <div class="centerContentArea">
+                    <!-- Main image container -->
+                    <div class="detailedViewImageContainer" id="mainImageContainer">
+                        <!-- Main image will be inserted here by JavaScript -->
+                        <!-- Navigation arrows -->
+                        <div class="image-nav-arrow image-nav-prev">
+                            <i class="fi fi-rr-angle-left"></i>
+                        </div>
+                        <div class="image-nav-arrow image-nav-next">
+                            <i class="fi fi-rr-angle-right"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Technical Details - Expandable Section -->
+                    <div class="expandableContainer technicalDetailsContainer" id="technicalDetailsContainer">
+                        <div class="toggleButton">
+                            <button id="toggleTechnicalDetails">
+                                <span class="show-text">Show Technical Details</span>
+                                <span class="hide-text">Hide Technical Details</span>
+                                <i class="fi fi-rr-angle-down"></i>
+                            </button>
+                        </div>
+                        <div class="expandableContent" id="technicalDetailsContent">
+                            <div class="technicalDetailsInner">
+                                <h2>Technical Specifications</h2>
+                                <p>This high-quality texture is crafted with precision to deliver exceptional detail and realism for your 3D projects.</p>
+                                
+                                <h3>Texture Information</h3>
+                                <ul>
+                                    <li>Resolution: 8192 × 8192 pixels (8K Ultra HD)</li>
+                                    <li>File Format: PNG with alpha channel</li>
+                                    <li>Seamless: Yes, perfect edge-to-edge continuity</li>
+                                    <li>UV Mapping: Standard planar mapping</li>
+                                </ul>
+                                
+                                <h3>Supported Software</h3>
+                                <p>This texture is compatible with all major 3D modeling, rendering, and game development platforms, including Blender, 3ds Max, Cinema 4D, Unreal Engine, Unity, and many more.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- SEO Description - Expandable Section -->
+                    <div class="expandableContainer seoDetailedDescription" id="seoDetailedDescription">
+                        <div class="toggleButton">
+                            <button id="toggleSeoDescription">
+                                <span class="show-text">Show Detailed Documentation</span>
+                                <span class="hide-text">Hide Detailed Documentation</span>
+                                <i class="fi fi-rr-angle-down"></i>
+                            </button>
+                        </div>
+                        <div class="expandableContent" id="seoDescriptionContent">
+                            <!-- Content will be loaded dynamically by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right side product info -->
+                <div class="detailedViewDescriptionContainer">
+                    <div class="detailedViewTitle">
+                        <h1 id="textureTitle">Loading...</h1>
+                    </div>
+                    
+                    <div class="productSpecs" id="textureDescription">
+                        <span>8K Resolution</span>
+                        <span>Seamless</span>
+                    </div>
+                    
+                    <div id="texturePrice" class="price">
+                        <span class="currency">$</span>0.99
+                    </div>
+                    
+                    <div class="texture-actions">
+                        <button class="addToCartButton" id="addToCartBtn">
+                            <i class="fi fi-rr-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                        <button class="downloadSampleBtn">
+                            <i class="fi fi-rr-download"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="detailedViewDescription">
+                        <p id="textureFullDescription">Ultra-detailed texture perfect for your 3D projects.</p>
+                    </div>
+                    
+                    <div class="textureDetails">
+                        <div class="section-header">
+                            <i class="fi fi-rr-list"></i>
+                            <h3>Texture Details</h3>
+                        </div>
+                        <div class="detailsList" id="textureDetailsList">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+                    
+                    <div class="textureMaps">
+                        <div class="section-header">
+                            <i class="fi fi-rr-layers"></i>
+                            <h3>Included Maps</h3>
+                        </div>
+                        <div class="mapsList" id="textureMapsList">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+                    
+                    <div class="additionalInfo">
+                        <div class="infoItem">
+                            <i class="fi fi-rr-shield-check"></i>
+                            <div class="infoContent">
+                                <h4>License</h4>
+                                <p>Commercial use allowed. No redistribution of source files.</p>
+                            </div>
+                        </div>
+                        <div class="infoItem">
+                            <i class="fi fi-rr-interrogation"></i>
+                            <div class="infoContent">
+                                <h4>Support</h4>
+                                <p>Have questions? Contact our support team for assistance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Suggested textures -->
+                    <div class="suggestedTexturesContainer">
+                        <div class="section-header">
+                            <i class="fi fi-rr-apps-add"></i>
+                            <h3>You May Also Like</h3>
+                        </div>
+                        <div class="suggestedTextures" id="suggestedTextures">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image zoom overlay (for lightbox) -->
+            <div class="image-zoom-overlay" id="imageZoomOverlay">
+                <img src="" alt="" id="zoomImage">
+                <div class="zoom-close-btn" id="zoomCloseBtn">
+                    <i class="fi fi-br-cross"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Custom scrollbar component -->
+        <div class="custom-scrollbar">
+            <div class="custom-scrollbar-thumb"></div>
+        </div>
+    </div>
+    
+    <!-- JavaScript Files -->
+    <script src="../assets/js/components/sidebar.js"></script>
+    <script src="../assets/js/components/custom-scrollbar.js"></script>
+    <script src="../assets/js/components/carousel.js"></script>
+    <script src="../assets/js/pages/texture-detail.js"></script>
+    <script src="../assets/js/init.js"></script>
+</body>
+</html>

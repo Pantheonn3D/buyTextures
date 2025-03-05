@@ -1,0 +1,169 @@
+/* Home Page Styles */
+
+/* Banner section */
+
+.bannerImage {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 2000px;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    animation: zoom-background 10s infinite alternate;
+    user-select: none;
+}
+
+.bannerOverlay {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 100%; /* Changed from 'cover' to '100%' to ensure correct width */
+    height: 110%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust the 0.5 to control darkness */
+    z-index: -1; /* Ensure it's above the image */
+    animation: zoom-background 10s infinite alternate;
+    user-select: none;
+}
+
+/* Featured textures section */
+.featuredTitleContainer {
+    position: relative;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: var(--spacing-md);
+    background-color: var(--medium-bg);
+    color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Concept section */
+.concept {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-md);
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    background-color: var(--dark-bg);
+    color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+}
+
+.conceptCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    max-width: 900px;
+    text-align: center;
+    width: 100%;
+}
+
+#conceptTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+#conceptIcon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: transform var(--transition-normal), color var(--transition-normal);
+    cursor: pointer;
+}
+
+#conceptIcon:hover {
+    transform: scale(1.2);
+    color: var(--secondary-color);
+}
+
+.conceptContent {
+    max-width: 700px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--muted-text);
+    padding: 0 var(--spacing-md);
+}
+
+/* Process section */
+.process {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-md);
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    background-color: var(--darker-bg);
+    color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+}
+
+.processCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    max-width: 900px;
+    text-align: center;
+    width: 100%;
+}
+
+#processTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+#processIcon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: transform var(--transition-normal), color var(--transition-normal);
+    cursor: pointer;
+}
+
+#processIcon:hover {
+    transform: scale(1.2);
+    color: var(--secondary-color);
+}
+
+.processContent {
+    max-width: 700px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--muted-text);
+    padding: 0 var(--spacing-md);
+}
+
+/* Final CTA section */
+.container6 {
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background-color: var(--dark-bg);
+    color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
