@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Initialize custom scrollbar
     initCustomScrollbar();
+
+    // Initialize cart functionality
+    if (typeof initCart === 'function') {
+        initCart();
+    }
     
     // Initialize page-specific features based on current page
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
@@ -22,8 +27,10 @@ document.addEventListener("DOMContentLoaded", function() {
             // Detail page initialization (if you have a function for this)
             // initTexturePage();
             break;
-            
-        // Add other pages as needed
+        case 'checkout.html':
+            // Checkout page has its own initialization
+            break;
+        // Additional pages
     }
     
     // Handle window resize for carousel

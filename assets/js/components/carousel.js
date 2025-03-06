@@ -24,6 +24,21 @@ function generateCarouselCards(trackId = "carouselTrack") {
     const duplicatedTextures = [...textures, ...textures, ...textures]; 
 
     duplicatedTextures.forEach(texture => {
+        // Format price with $ if not already formatted
+        const displayPrice = texture.price ? 
+            (texture.price.toString().startsWith('$') ? texture.price : `$${texture.price}`) : 
+            '$15.99'; // Default price if none specified
+
+        // Prepare texture data for cart
+        const textureJSON = JSON.stringify({
+            id: texture.id || generateTextureId(texture.name),
+            name: texture.name,
+            category: texture.category || 'Texture',
+            price: texture.price || 15.99,
+            image: texture.image,
+            maps: texture.maps || {}
+        });
+        
         const card = document.createElement("div");
         card.classList.add("carouselCard");
 
@@ -34,17 +49,125 @@ function generateCarouselCards(trackId = "carouselTrack") {
 
         card.innerHTML = `
             ${imageElement}
-            <p class="textureName">${texture.name}</p>
-            <p class="textureDetails">${texture.details}</p>
+            <div class="textureInfo">
+                <p class="textureName">${texture.name}</p>
+                <p class="textureDetails">${texture.details}</p>
+                <span class="texturePrice">${displayPrice}</span>
+            </div>
             <div class="featuredButtonContainer">
-                <button class="addFeaturedToCart">Add to cart</button>
+                <button class="addFeaturedToCart" 
+                        data-texture-id="${texture.id || generateTextureId(texture.name)}"
+                        data-texture-json='${textureJSON}'>
+                    Add to cart
+                </button>
                 <button class="viewFeaturedTexture" onclick="location.href='${texture.link || '#'}'">View</button>
             </div>
         `;
         track.appendChild(card);
     });
 
+    // Add event listeners to all "Add to cart" buttons
+    setupAddToCartButtons();
+    
     console.log(`generateCarouselCards(${trackId}): Added`, track.children.length, "cards.");
+}
+
+/**
+ * Helper function to generate a texture ID from name if not provided
+ */
+function generateTextureId(name) {
+    return name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+}
+
+/**
+ * Set up event listeners for Add to Cart buttons
+ */
+function setupAddToCartButtons() {
+    const addToCartButtons = document.querySelectorAll('.addFeaturedToCart');
+    
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const textureId = this.getAttribute('data-texture-id');
+            const textureData = JSON.parse(this.getAttribute('data-texture-json'));
+            
+            // Add item to cart (function should be defined in cart.js)
+            if (typeof addToCart === 'function') {
+                addToCart(textureData);
+                
+                // Show feedback toast
+                showToast(`Added ${textureData.name} to cart`);
+                
+                // Update cart icon
+                updateCartIcon();
+            } else {
+                console.error('addToCart function not found. Make sure cart.js is loaded!');
+            }
+        });
+    });
+}
+
+/**
+ * Display a toast notification when item is added to cart
+ */
+function showToast(message) {
+    // Get or create toast container
+    let toastContainer = document.querySelector('.toast-container');
+    
+    if (!toastContainer) {
+        toastContainer = document.createElement('div');
+        toastContainer.className = 'toast-container';
+        document.body.appendChild(toastContainer);
+    }
+    
+    // Create new toast
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `
+        <i class="fi fi-sr-check-circle"></i>
+        <div class="toast-content">${message}</div>
+    `;
+    
+    // Add to container
+    toastContainer.appendChild(toast);
+    
+    // Trigger animation after a small delay
+    setTimeout(() => toast.classList.add('active'), 10);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('active');
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
+/**
+ * Update the cart icon to show number of items
+ */
+function updateCartIcon() {
+    const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+    const cartIcon = document.getElementById('shoppingCart');
+    
+    if (cartIcon) {
+        // Remove existing badge if any
+        const existingBadge = cartIcon.querySelector('.cart-badge');
+        if (existingBadge) {
+            existingBadge.remove();
+        }
+        
+        if (cartItems.length > 0) {
+            // Add "has-items" class to the icon
+            cartIcon.classList.add('has-items');
+            
+            // Create and append badge
+            const badge = document.createElement('div');
+            badge.className = 'cart-badge';
+            badge.textContent = cartItems.length;
+            cartIcon.appendChild(badge);
+        } else {
+            cartIcon.classList.remove('has-items');
+        }
+    }
 }
 
 /**
@@ -191,4 +314,7 @@ function initCarousel(textureData, trackId = "carouselTrack") {
             console.error(`Not enough items for infinite scroll in '${trackId}'.`);
         }
     }, 500);
+    
+    // Setup initial cart icon
+    updateCartIcon();
 }

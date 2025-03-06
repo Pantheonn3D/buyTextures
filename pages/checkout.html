@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PXZRG9SX');</script>
+        <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Texture Marketplace</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="../favicon.ico" sizes="32x32"/>
+</head>
+<body class="body">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXZRG9SX"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+    <div class="scroll-container">
+        <div class="scroll-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="headerLeft">
+                    <a href="../index.html">
+                        <img src="../assets/images/logo/texture marketplace white.png" alt="logo" class="headerLogo">
+                    </a>    
+                </div>
+                <div class="headerRight">            
+                    <i class="fi fi-rr-shopping-cart" id="shoppingCart"></i>        
+                    <span class="nav-separator"></span>
+                    <i class="fi fi-rr-menu-burger" onclick="toggleSidebar()"></i>    
+                </div>
+            </div>
+
+            <!-- Sidebar (hidden by default) -->
+            <div class="sidebar" id="sidebar">
+                <i class="fi fi-br-cross" onclick="toggleSidebar()"></i>
+            </div>
+
+            <!-- Checkout Content -->
+            <div class="checkout-container">
+                <div class="checkout-header">
+                    <h1>Secure Checkout</h1>
+                    <div class="checkout-progress">
+                        <div class="progress-step active">
+                            <div class="step-circle">1</div>
+                            <div class="step-label">Order Summary</div>
+                        </div>
+                        <div class="progress-connector"></div>
+                        <div class="progress-step active">
+                            <div class="step-circle">2</div>
+                            <div class="step-label">Checkout</div>
+                        </div>
+                        <div class="progress-connector"></div>
+                        <div class="progress-step">
+                            <div class="step-circle">3</div>
+                            <div class="step-label">Confirmation</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-content">
+                    <!-- Left column - Checkout form -->
+                    <div class="checkout-form-container">
+                        <div class="form-section">
+                            <h2>Contact Information</h2>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" required placeholder="Your email address">
+                                    <p class="form-hint">Your download link and receipt will be sent here</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2>Billing Information</h2>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" required placeholder="First name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" required placeholder="Last name">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="country">Country *</label>
+                                    <select id="country" required>
+                                        <option value="">Select your country</option>
+                                        <option value="US">United States</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="GB">United Kingdom</option>
+                                        <option value="AU">Australia</option>
+                                        <option value="DE">Germany</option>
+                                        <option value="FR">France</option>
+                                        <option value="NL">Netherlands</option>
+                                        <option value="ES">Spain</option>
+                                        <option value="IT">Italy</option>
+                                        <option value="JP">Japan</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="zipCode">Postal/Zip Code *</label>
+                                    <input type="text" id="zipCode" required placeholder="Postal/Zip code">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2>Payment Method</h2>
+                            <div class="payment-options">
+                                <div class="payment-option">
+                                    <input type="radio" id="creditCard" name="paymentMethod" checked>
+                                    <label for="creditCard">
+                                        <span class="payment-icon"><i class="fi fi-sr-credit-card"></i></span>
+                                        <span class="payment-label">Credit Card</span>
+                                    </label>
+                                </div>
+                                <div class="payment-option">
+                                    <input type="radio" id="paypal" name="paymentMethod">
+                                    <label for="paypal">
+                                        <span class="payment-icon"><i class="fi fi-rr-credit-card"></i></span>
+                                        <span class="payment-label">PayPal</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Credit Card Form (visible by default) -->
+                            <div id="creditCardForm" class="payment-method-form">
+                                <div class="form-row">
+                                    <div class="form-group full-width">
+                                        <label for="cardNumber">Card Number *</label>
+                                        <div class="card-input-container">
+                                            <input type="text" id="cardNumber" required placeholder="1234 5678 9012 3456">
+                                            <div class="card-icons">
+                                                <span class="card-icon visa active"></span>
+                                                <span class="card-icon mastercard"></span>
+                                                <span class="card-icon amex"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expDate">Expiration Date *</label>
+                                        <input type="text" id="expDate" required placeholder="MM / YY">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">Security Code (CVV) *</label>
+                                        <input type="text" id="cvv" required placeholder="123">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group full-width">
+                                        <label for="nameOnCard">Name on Card *</label>
+                                        <input type="text" id="nameOnCard" required placeholder="Name as it appears on your card">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PayPal Form (hidden by default) -->
+                            <div id="paypalForm" class="payment-method-form hidden">
+                                <div class="paypal-info">
+                                    <p>Click the "Complete Purchase" button to proceed to PayPal's secure checkout.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right column - Order summary -->
+                    <div class="order-summary-container">
+                        <div class="order-summary">
+                            <h2>Order Summary</h2>
+                            
+                            <div class="order-items" id="orderItems">
+                                <!-- Order items will be dynamically inserted here -->
+                            </div>
+                            
+                            <div class="order-totals">
+                                <div class="total-row">
+                                    <span>Subtotal</span>
+                                    <span id="subtotal">$0.00</span>
+                                </div>
+                                <div class="total-row discount hidden" id="discountRow">
+                                    <span>Discount</span>
+                                    <span id="discount">-$0.00</span>
+                                </div>
+                                <div class="total-row final-total">
+                                    <span>Total</span>
+                                    <span id="total">$0.00</span>
+                                </div>
+                            </div>
+                            
+                            <div class="promo-code">
+                                <div class="promo-input">
+                                    <input type="text" id="promoCode" placeholder="Promo code">
+                                    <button id="applyPromo">Apply</button>
+                                </div>
+                                <p class="promo-hint">Try code: <strong>TEXTURE20</strong></p>
+                            </div>
+                            
+                            <div class="checkout-action">
+                                <button id="completePurchase" class="purchase-button">
+                                    <span>Complete Purchase</span>
+                                    <i class="fi fi-rr-angle-right"></i>
+                                </button>
+                                <p class="secure-checkout">
+                                    <i class="fi fi-rr-lock"></i> Secure checkout - Your data is protected
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="purchase-benefits">
+                            <div class="benefit-item">
+                                <i class="fi fi-rr-download"></i>
+                                <div class="benefit-text">
+                                    <h4>Instant Download</h4>
+                                    <p>Access your files immediately after purchase</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fi fi-rr-shield-check"></i>
+                                <div class="benefit-text">
+                                    <h4>Secure Transaction</h4>
+                                    <p>Your payment information is encrypted and secure</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fi fi-rr-refresh"></i>
+                                <div class="benefit-text">
+                                    <h4>Free Updates</h4>
+                                    <p>Get future updates to purchased textures at no cost</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Confirmation Modal (hidden by default) -->
+            <div class="modal-overlay" id="confirmationModal">
+                <div class="modal-content">
+                    <div class="confirmation-header">
+                        <i class="fi fi-sr-check-circle success-icon"></i>
+                        <h2>Payment Successful!</h2>
+                        <p>Your order has been processed successfully.</p>
+                    </div>
+                    
+                    <div class="confirmation-details">
+                        <div class="confirmation-item">
+                            <span class="confirm-label">Order ID:</span>
+                            <span class="confirm-value" id="orderId">ORD-123456</span>
+                        </div>
+                        <div class="confirmation-item">
+                            <span class="confirm-label">Purchase Date:</span>
+                            <span class="confirm-value" id="purchaseDate">Oct 10, 2023</span>
+                        </div>
+                        <div class="confirmation-item">
+                            <span class="confirm-label">Total Amount:</span>
+                            <span class="confirm-value" id="confirmTotal">$0.00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="download-section">
+                        <h3>Your Downloads</h3>
+                        <p>Your files are ready for download. You can also access them anytime from your account.</p>
+                        
+                        <div id="downloadItems">
+                            <!-- Download items will be inserted here -->
+                        </div>
+                        
+                        <div class="email-notification">
+                            <i class="fi fi-rr-envelope"></i>
+                            <p>A receipt and download links have been sent to your email.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <a href="../index.html" class="secondary-button">
+                            <i class="fi fi-rr-home"></i> Return to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="custom-scrollbar">
+            <div class="custom-scrollbar-thumb"></div>
+        </div>
+    </div>
+
+    <script src="../assets/js/components/custom-scrollbar.js"></script>
+    <script src="../assets/js/components/sidebar.js"></script>
+    <script src="../assets/js/components/cart.js"></script>
+    <script src="../assets/js/pages/checkout.js"></script>
+    <script src="../assets/js/init.js"></script>
+</body>
+</html>

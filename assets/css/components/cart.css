@@ -1,0 +1,77 @@
+/* Cart badge styles */
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: var(--primary-color);
+    color: #111;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#shoppingCart {
+    position: relative;
+    cursor: pointer;
+}
+
+#shoppingCart.has-items {
+    color: var(--primary-color);
+}
+
+/* Toast notification styles */
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background-color: var(--darker-bg);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 280px;
+    max-width: 320px;
+    border-left: 3px solid var(--primary-color);
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.toast.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.toast i {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+}
+
+/* Additional styles for texture price */
+.textureInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.texturePrice {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-top: 4px;
+}

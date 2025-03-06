@@ -44,6 +44,24 @@
     color: black;
 }
 
+.addFeaturedToCart:hover {
+    height: 32px;
+    width: 120px;
+    font-size: 1em;
+    font-weight: 600;
+    font-weight: bold;
+    border-radius: var(--border-radius-md);
+    border: none;
+    cursor: pointer;
+    gap: var(--spacing-md);
+    transition: transform var(--transition-fast);
+    text-decoration: none;
+    display: inline-block;
+    user-select: none;
+    background-color: var(--secondary-color);
+    color: black;
+}
+
 .viewFeaturedTexture {
     height: 32px;
     width: 88px;

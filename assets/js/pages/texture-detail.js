@@ -379,18 +379,8 @@ function updateTextureDetailPage(texture, allTextures) {
     // Update SEO description
     updateSeoDescription(texture.id);
     
-    // Add event listener to Add to Cart button
-    const addToCartBtn = document.getElementById('addToCartBtn');
-    if (addToCartBtn) {
-        // Remove existing event listeners to prevent duplicates
-        const newBtn = addToCartBtn.cloneNode(true);
-        addToCartBtn.parentNode.replaceChild(newBtn, addToCartBtn);
-        
-        newBtn.addEventListener('click', () => {
-            alert(`Added ${texture.name} to cart!`);
-            // Implement actual cart functionality here
-        });
-    }
+    // Set up Add to Cart button functionality
+    setupAddToCartButton(texture);
     
     // Initialize image navigation
     initImageNavigation();
@@ -768,6 +758,50 @@ function updateSeoDescription(textureId) {
  * Handle case when texture is not found
  */
 function handleTextureNotFound() {
+
+        // Specific implementation for texture-detail.html
+    // Use an immediately invoked function to avoid pollution in global scope
+    (function() {
+        // Flag to track if handlers are already attached
+        let handlersAttached = false;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Only attach handlers once
+            if (handlersAttached) return;
+            handlersAttached = true;
+            
+            // Find the add to cart button
+            const addToCartBtn = document.querySelector('.add-to-cart-btn');
+            
+            if (addToCartBtn) {
+                // Remove any existing click listeners
+                const newBtn = addToCartBtn.cloneNode(true);
+                addToCartBtn.parentNode.replaceChild(newBtn, addToCartBtn);
+                
+                // Add our single click listener
+                newBtn.addEventListener('click', function() {
+                    // Get texture details from the page
+                    const textureId = this.getAttribute('data-id');
+                    const textureName = document.querySelector('.texture-title').textContent;
+                    const texturePrice = parseFloat(document.querySelector('.texture-price').textContent.replace('$', ''));
+                    const textureCategory = document.querySelector('.texture-category').textContent;
+                    const textureImage = document.querySelector('.texture-preview img').src;
+                    
+                    // Create texture item object
+                    const textureItem = {
+                        id: textureId,
+                        name: textureName,
+                        price: texturePrice,
+                        category: textureCategory,
+                        image: textureImage
+                    };
+                    
+                    // Add to cart with debounce protection
+                    addToCart(textureItem);
+                });
+            }
+        });
+    })();
     document.title = 'Texture Not Found - Texture Marketplace';
     
     const titleElement = document.getElementById('textureTitle');
@@ -790,12 +824,17 @@ function handleTextureNotFound() {
     if (priceElement) {
         priceElement.innerHTML = '<span class="currency">$</span>0.00';
     }
+        // Find the checkout button
+        const checkoutBtn = document.querySelector('.checkout-btn');
+        
+        if (checkoutBtn) {
+            checkoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                initiateCheckout();
+            });
+        }
     
-    const addToCartBtn = document.getElementById('addToCartBtn');
-    if (addToCartBtn) {
-        addToCartBtn.style.display = 'none';
-    }
-    
+
     // Show "not found" message in image area
     const mainImageContainer = document.getElementById('mainImageContainer');
     if (mainImageContainer) {
@@ -911,6 +950,46 @@ function initTextureDetailPage() {
             // Update page with fallback texture data
             updateTextureDetailPage(texture, fallbackTextureData);
         });
+}
+
+// Setup Add to Cart button
+function setupAddToCartButton(texture) {
+    const addToCartBtn = document.getElementById('addToCartBtn');
+    
+    if (addToCartBtn && texture) {
+        addToCartBtn.addEventListener('click', function() {
+            if (typeof addToCart === 'function') {
+                // Add to cart
+                const success = addToCart({
+                    id: texture.id,
+                    name: texture.name,
+                    category: texture.category || 'Texture',
+                    price: texture.price || 15.99,
+                    image: texture.image,
+                    maps: texture.maps || {}
+                });
+                
+                if (success) {
+                    // Show success toast
+                    if (typeof showToast === 'function') {
+                        showToast(`Added ${texture.name} to cart!`);
+                    }
+                    
+                    // Update button state temporarily
+                    addToCartBtn.innerHTML = '<i class="fi fi-sr-check"></i> Added to Cart';
+                    addToCartBtn.classList.add('success');
+                    
+                    // Reset button after delay
+                    setTimeout(() => {
+                        addToCartBtn.innerHTML = '<i class="fi fi-rr-shopping-cart"></i> Add to Cart';
+                        addToCartBtn.classList.remove('success');
+                    }, 2000);
+                }
+            } else {
+                console.error('addToCart function not found. Make sure cart.js is loaded!');
+            }
+        });
+    }
 }
 
 // Initialize when DOM is ready

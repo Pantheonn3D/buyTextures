@@ -1,0 +1,1070 @@
+/* Checkout Page Styles */
+
+/* 
+ * Table of Contents:
+ * 1. Container and Layout
+ * 2. Checkout Header and Progress
+ * 3. Form Styling
+ * 4. Order Summary
+ * 5. Payment Options
+ * 6. Buttons and Actions
+ * 7. Confirmation Modal
+ * 8. Empty Cart State
+ * 9. Cart & Toast Notifications
+ * 10. Responsive Styles
+ * 11. Animations
+ */
+
+/* =================== */
+/* 1. Container and Layout */
+/* =================== */
+html {
+    background-color:  var(--dark-bg);
+}
+
+.checkout-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 80px auto 40px;
+    padding: 0 20px;
+}
+
+.checkout-content {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.checkout-form-container {
+    flex: 3;
+    min-width: 0;
+}
+
+.order-summary-container {
+    flex: 2;
+    min-width: 0;
+}
+
+/* =================== */
+/* 2. Checkout Header and Progress */
+/* =================== */
+
+.checkout-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.checkout-header h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.checkout-progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.step-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--darker-bg);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-bottom: 8px;
+}
+
+.progress-step.active .step-circle {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--darker-bg);
+    box-shadow: 0 0 15px rgba(108, 224, 0, 0.4);
+}
+
+.step-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+.progress-step.active .step-label {
+    color: white;
+    font-weight: 500;
+}
+
+.progress-connector {
+    flex-grow: 1;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px;
+    position: relative;
+    top: -24px;
+    z-index: 0;
+    max-width: 100px;
+}
+
+.progress-step.active + .progress-connector {
+    background-color: var(--primary-color);
+}
+
+/* =================== */
+/* 3. Form Styling */
+/* =================== */
+
+.form-section {
+    background-color: var(--darker-bg);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.form-section h2 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 0;
+}
+
+.form-group.full-width {
+    flex-basis: 100%;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 14px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(108, 224, 0, 0.2);
+    outline: none;
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.form-hint {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 6px;
+}
+
+.card-input-container {
+    position: relative;
+}
+
+.card-icons {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 6px;
+}
+
+.card-icon {
+    width: 30px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    opacity: 0.3;
+    transition: opacity 0.2s ease;
+}
+
+.card-icon.active {
+    opacity: 1;
+}
+
+.card-icon.visa {
+    background-color: #1434CB;
+}
+
+.card-icon.mastercard {
+    background-color: #EB001B;
+}
+
+.card-icon.amex {
+    background-color: #006FCF;
+}
+
+/* =================== */
+/* 4. Order Summary */
+/* =================== */
+
+.order-summary {
+    background-color: var(--darker-bg);
+    border-radius: 12px;
+    margin-bottom: 300px;
+    padding: 30px;
+    position: sticky;
+    top: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.order-summary h2 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.order-items {
+    margin-bottom: 30px;
+    max-height: 320px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.order-items::-webkit-scrollbar {
+    width: 5px;
+}
+
+.order-items::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+.order-items::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.order-items::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+
+.order-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.item-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-details {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.item-details h3 {
+    font-size: 1.1rem;
+    color: white;
+    margin: 0 0 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-category {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
+.item-price {
+    font-size: 1.1rem;
+    color: white;
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+.remove-item {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 6px;
+    transition: all 0.2s ease;
+    border-radius: 50%;
+}
+
+.remove-item:hover {
+    color: #ff4d4d;
+    background-color: rgba(255, 77, 77, 0.1);
+}
+
+.order-totals {
+    margin-bottom: 24px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.total-row.discount {
+    color: var(--primary-color);
+}
+
+.total-row.final-total {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: white;
+    padding-top: 20px;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.promo-code {
+    margin-bottom: 30px;
+}
+
+.promo-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.promo-input input {
+    flex-grow: 1;
+    padding: 12px 14px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: white;
+    font-size: 0.95rem;
+}
+
+.promo-input input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(108, 224, 0, 0.2);
+    outline: none;
+}
+
+.promo-input button {
+    padding: 12px 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.promo-input button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.promo-hint {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
+.purchase-benefits {
+    scale: 100%;
+    margin-top: 100px;
+    background-color: rgba(108, 224, 0, 0.05);
+    border-radius: 12px;
+    width: 100%;
+    padding: 28px;
+    position: sticky;
+    border: 1px solid rgba(108, 224, 0, 0.1);
+}
+
+.benefit-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.benefit-item:last-child {
+    margin-bottom: 0;
+}
+
+.benefit-item i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-top: 2px;
+}
+
+.benefit-text h4 {
+    font-size: 1rem;
+    color: white;
+    margin: 0 0 4px;
+}
+
+.benefit-text p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* =================== */
+/* 5. Payment Options */
+/* =================== */
+
+.payment-options {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.payment-option {
+    flex: 1;
+    position: relative;
+}
+
+.payment-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.payment-option label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payment-option input[type="radio"]:checked + label {
+    border-color: var(--primary-color);
+    background-color: rgba(108, 224, 0, 0.05);
+    box-shadow: 0 0 12px rgba(108, 224, 0, 0.15);
+}
+
+.payment-option:hover label {
+    border-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.payment-icon {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.payment-label {
+    font-size: 1rem;
+    color: white;
+    font-weight: 500;
+}
+
+.payment-method-form {
+    transition: all 0.3s ease;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.payment-method-form.hidden {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.paypal-info {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.paypal-info p {
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* =================== */
+/* 6. Buttons and Actions */
+/* =================== */
+
+.checkout-action {
+    text-align: center;
+}
+
+.purchase-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 20px;
+    background-color: var(--primary-color);
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 15px rgba(123, 239, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.purchase-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+}
+
+.purchase-button:hover {
+    background-color: #88FF00;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(123, 239, 0, 0.3);
+}
+
+.purchase-button:hover::before {
+    left: 100%;
+}
+
+.purchase-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(123, 239, 0, 0.2);
+}
+
+.purchase-button.disabled {
+    background-color: #808080;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.purchase-button.disabled:hover {
+    transform: none;
+}
+
+.purchase-button.disabled::before {
+    display: none;
+}
+
+.purchase-button i {
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.purchase-button:hover i {
+    transform: translateX(3px);
+}
+
+.secure-checkout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.secure-checkout i {
+    color: var(--primary-color);
+}
+
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+.secondary-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.secondary-button i {
+    font-size: 1.1rem;
+}
+
+/* =================== */
+/* 7. Confirmation Modal */
+/* =================== */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    width: 90%;
+    max-width: 600px;
+    background-color: var(--darker-bg);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    position: relative;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.confirmation-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.success-icon {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.confirmation-header h2 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.confirmation-header p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.confirmation-details {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.confirmation-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.confirmation-item:last-child {
+    border-bottom: none;
+}
+
+.confirm-label {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.confirm-value {
+    font-size: 0.95rem;
+    color: white;
+    font-weight: 500;
+}
+
+.download-section {
+    margin-bottom: 30px;
+}
+
+.download-section h3 {
+    font-size: 1.3rem;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.download-section p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+.download-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(108, 224, 0, 0.05);
+    border: 1px solid rgba(108, 224, 0, 0.1);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+}
+
+.download-info h4 {
+    font-size: 1.1rem;
+    color: white;
+    margin: 0 0 4px;
+}
+
+.file-size {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.download-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background-color: var(--primary-color);
+    color: #111;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+.download-button:hover {
+    background-color: #88FF00;
+    transform: translateY(-2px);
+}
+
+.email-notification {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 24px;
+}
+
+.email-notification i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.email-notification p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* =================== */
+/* 8. Empty Cart State */
+/* =================== */
+
+.empty-cart {
+    text-align: center;
+    padding: 40px 20px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.empty-cart i {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.empty-cart p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.empty-cart-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: #111;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.empty-cart-link:hover {
+    background-color: #88FF00;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(123, 239, 0, 0.3);
+}
+
+/* =================== */
+/* 9. Cart & Toast Notifications */
+/* =================== */
+
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: var(--primary-color);
+    color: #111;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#shoppingCart {
+    position: relative;
+}
+
+#shoppingCart.has-items {
+    color: var(--primary-color);
+}
+
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background-color: var(--darker-bg);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 280px;
+    max-width: 320px;
+    border-left: 3px solid var(--primary-color);
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.toast.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.toast i {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+}
+
+/* =================== */
+/* 10. Responsive Styles */
+/* =================== */
+
+@media (max-width: 1200px) {
+    .checkout-content {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .checkout-content {
+        flex-direction: column-reverse;
+    }
+    
+    .order-summary-container {
+        position: relative;
+    }
+    
+    .order-summary {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .checkout-container {
+        margin-top: 60px;
+        padding: 0 15px;
+    }
+    
+    .checkout-header h1 {
+        font-size: 2rem;
+    }
+    
+    .step-circle {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .step-label {
+        font-size: 0.8rem;
+    }
+    
+    .progress-connector {
+        top: -22px;
+        max-width: 60px;
+    }
+    
+    .form-section {
+        padding: 20px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .order-summary,
+    .purchase-benefits {
+        padding: 20px;
+    }
+    
+    .modal-content {
+        padding: 30px 20px;
+    }
+    
+    .download-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .download-button {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .checkout-container {
+        padding: 0 10px;
+    }
+    
+    .checkout-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .payment-options {
+        flex-direction: column;
+    }
+    
+    .confirmation-header h2 {
+        font-size: 1.7rem;
+    }
+}
+
+/* =================== */
+/* 11. Animations */
+/* =================== */
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(108, 224, 0, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(108, 224, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(108, 224, 0, 0);
+    }
+}
+
+.purchase-button:not(.disabled) {
+    animation: pulse 2s infinite;
+}
+
+.hidden {
+    display: none;
+}

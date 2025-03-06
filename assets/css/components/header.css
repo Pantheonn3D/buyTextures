@@ -59,13 +59,12 @@
     font-size: 1.5em;
     cursor: pointer;
     border-radius: 5px;
-    position: absolute;
-    right: 128px;
+    position: relative;
     transition: right 0.45s cubic-bezier(0.05, 0.3, 0.04, 1.1) 0.05s, transform var(--transition-normal);
 }
 
 .fi.fi-rr-shopping-cart.headerMove {
-    right: 320px;
+    right: 180px;
 }
 
 .fi.fi-rr-menu-burger:hover {
